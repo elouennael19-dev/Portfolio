@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elouen Nael | Portfolio</title>
+  <meta name="description" content="Data & AI engineering student at ISEN Brest, founder of NAEL CREATION.">
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=127">
+  <script>
+    // Écran d'accueil : seulement à la première visite (ou via #30s)
+    (function () {
+      var seen = false;
+      try { seen = localStorage.getItem("intro-seen") === "1"; } catch (e) {}
+      var h = location.hash;
+      if (h === "#30s") document.documentElement.classList.add("show-quick");
+      else if (!seen && !h) document.documentElement.classList.add("show-intro");
+    })();
+  </script>
+</head>
+<body>
+  <!-- ============ ÉCRAN D'ACCUEIL ============ -->
+  <section class="intro" aria-labelledby="intro-q">
+    <div class="intro__inner">
+      <span class="intro__label mono">[ HI ]</span>
+      <h1 class="intro__q" id="intro-q">How much time do you have to know me?</h1>
+      <div class="intro__choices">
+        <button class="btn btn--ghost mono" data-intro="quick">[ &lt; 30s ]</button>
+        <button class="btn mono" data-intro="full">[ It's ok, I have time ]</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VERSION 30 SECONDES ============ -->
+  <section class="quick" aria-label="Elouen Nael in 30 seconds">
+    <ul class="quick__list mono">
+      <li>Elouen Nael</li>
+      <li>21, French</li>
+      <li>Data &amp; AI engineering student, ISEN Brest</li>
+      <li>Founded a video company at 18, alongside full-time studies</li>
+      <li>Notion Campus Leader</li>
+      <li>Looking for a 4–6 month data internship, April 2027, anywhere</li>
+      <li>Then a work-study in France, 2027–28</li>
+      <li>#12/85 overall at ISEN</li>
+      <li>24 client projects delivered</li>
+      <li>Data project in finance: <a href="https://elouennael19dev-portfolio-diversification.streamlit.app" target="_blank" rel="noopener">Portfolio Analysis</a> (live app)</li>
+      <li><a href="mailto:elouen.nael19@gmail.com?subject=Internship%202027%20%E2%80%93%20let%27s%20talk&body=Hi%20Elouen%2C%0A%0AI%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20talk%20about%20a%204%E2%80%936%20month%20internship%20starting%20in%20April%202027.%0A%0AWhen%20would%20you%20be%20available%20for%20a%20quick%20call%3F%0A%0ABest%20regards%2C%0A">Email me</a></li>
+      <li><a href="assets/docs/cv.pdf" target="_blank" rel="noopener">Resume</a></li>
+      <li><a href="https://www.linkedin.com/in/elouen-nael/" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+    <button class="quick__more mono" data-intro="full">[ I changed my mind, I have time ]</button>
+  </section>
+
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav">
+    <a href="#top" class="nav__logo" aria-label="Home">
+      <img src="assets/img/logo.png" alt="Elouen Nael logo">
+    </a>
+    <button class="nav__toggle mono" aria-expanded="false" aria-controls="nav-menu">[ menu ]</button>
+    <nav id="nav-menu" class="nav__menu mono">
+      <a href="#about">[ about ]</a>
+      <a href="#skills">[ skills ]</a>
+      <a href="#projects">[ projects ]</a>
+      <a href="#outside">[ outside school ]</a>
+      <a href="#contact">[ contact ]</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__head">
+        <h1 class="hero__title">Elouen<br>NAEL</h1>
+
+        <aside class="goal" aria-labelledby="goal-title">
+          <span id="goal-title" class="goal__label mono">[ THE PLAN ]</span>
+          <ol class="goal__list">
+            <li class="goal__now"><span class="goal__year mono">2023 →</span><span class="goal__step">Engineering school, ISEN Brest</span></li>
+            <li class="goal__intern"><span class="goal__ring" aria-hidden="true"></span><span class="goal__year mono">2027</span><span class="goal__step">Data internship abroad</span></li>
+            <li><span class="goal__year mono">2027 → 28</span><span class="goal__step">Work-study in France</span></li>
+            <li><span class="goal__year mono">2028</span><span class="goal__step">Engineering degree</span></li>
+            <li class="goal__end"><span class="goal__year mono">2028 →</span><span class="goal__step">Full-time role in tech</span></li>
+          </ol>
+          <p class="goal__note mono">Ideally in your company. Or a slightly worse one.</p>
+        </aside>
+      </div>
+      <div class="hero__bottom">
+        <p class="hero__tagline mono">
+          DATA &amp; AI ENGINEERING STUDENT — ISEN BREST<br>
+          FOUNDER OF NAEL CREATION
+        </p>
+        <div class="hero__cta">
+          <a href="#projects" class="btn mono">[ explore ]</a>
+          <a href="assets/docs/cv.pdf" class="btn btn--ghost mono" target="_blank" rel="noopener">[ resume ]</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section section--about reveal">
+      <div class="about__intro">
+        <div class="about__text">
+          <span class="label mono">[ABOUT]</span>
+          <!-- Phrase d'accroche à écrire : <h2 class="statement">...</h2> -->
+          <p>I'm a fourth-year engineering student at ISEN Brest, specialising in data and artificial intelligence, and passionate about the worlds of tech and finance.</p>
+          <p>Alongside my studies, I've been running my own video production business since I was 18. I'm looking for a 4–6 month internship from April to September 2027, followed by a work-study position in 2027–2028.</p>
+        </div>
+
+        <figure class="about__portrait">
+          <div class="about__frame">
+            <span class="ripple" aria-hidden="true"></span><span class="ripple" aria-hidden="true"></span>
+            <img src="assets/img/portrait.jpg" alt="Portrait of Elouen Nael in profile" width="800" height="800" loading="lazy">
+          </div>
+        </figure>
+      </div>
+
+      <ul class="stats">
+        <li><span class="stats__num">#12<small>/85</small></span><span class="mono">Overall rank<br>ISEN · Year 3</span></li>
+        <li><span class="stats__num">#3<small>/64</small></span><span class="mono">Databases<br>ISEN · Year 3</span></li>
+        <li><span class="stats__num">#4<small>/85</small></span><span class="mono">Artificial intelligence<br>ISEN · Year 3</span></li>
+        <li><span class="stats__num">2</span><span class="mono">Businesses founded<br>Video · Real estate</span></li>
+        <li><span class="stats__num">13</span><span class="mono">Countries visited<br>4 continents</span></li>
+      </ul>
+
+      <div class="studies">
+        <div class="studies__globe">
+          <svg id="globe" viewBox="0 0 600 600" role="img" aria-label="Globe showing where I studied: Brest, Singapore and Los Angeles."></svg>
+          <span class="studies__hint mono">[ drag to rotate ]</span>
+        </div>
+
+        <div class="studies__panel">
+          <span class="label mono">[ WHERE I STUDIED ]</span>
+          <ul class="studies__list">
+            <li>
+              <button class="study is-active" data-lat="48.39" data-lon="-4.49" aria-pressed="true">
+                <span class="study__head"><span class="study__name">ISEN Brest</span><span class="study__year mono">2023 → 2028</span></span>
+                <span class="study__place mono">Brest, France</span>
+                <span class="study__detail">Engineering degree, data &amp; computer science. Specialising in data and AI: machine learning, statistics, databases.</span>
+              </button>
+            </li>
+            <li>
+              <button class="study" data-lat="1.33" data-lon="103.78" aria-pressed="false">
+                <span class="study__head"><span class="study__name">SUSS Singapore</span><span class="study__year mono">2025</span></span>
+                <span class="study__place mono">Singapore</span>
+                <span class="study__detail">Exchange semester in finance, economics and business analytics.</span>
+              </button>
+            </li>
+            <li>
+              <button class="study" data-lat="34.07" data-lon="-118.44" aria-pressed="false">
+                <span class="study__head"><span class="study__name">UCLA Extension</span><span class="study__year mono">2027</span></span>
+                <span class="study__place mono">Los Angeles, USA</span>
+                <span class="study__detail">Data Science Certificate.</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="section section--skills reveal">
+      <div class="skills__bg" aria-hidden="true">
+        <span class="wave wave--1"></span>
+        <span class="wave wave--2"></span>
+        <span class="wave wave--3"></span>
+        <span class="wave wave--4"></span>
+        <span class="skills__fade"></span>
+      </div>
+      <span class="label mono">[SKILLS]</span>
+
+      <div class="cols cols--3 skills__grid">
+        <div class="skill">
+          <span class="skill__num mono">01</span>
+          <h3>Programming &amp; data</h3>
+          <p class="mono">Python · pandas · NumPy · scikit‑learn · Matplotlib · R · SQL (MySQL) · C · PHP&nbsp;/&nbsp;JavaScript</p>
+        </div>
+        <div class="skill">
+          <span class="skill__num mono">02</span>
+          <h3>Quantitative methods</h3>
+          <p class="mono">Hypothesis testing · Linear &amp; logistic regression · Ridge · Random Forest · Feature engineering · k‑fold cross‑validation · Model evaluation (R², MAE, RMSE)</p>
+        </div>
+        <div class="skill">
+          <span class="skill__num mono">03</span>
+          <h3>Data modelling &amp; BI</h3>
+          <p class="mono">Relational modelling · Schema design · Analytical joins · KPI design · Dashboarding</p>
+        </div>
+        <div class="skill">
+          <span class="skill__num mono">04</span>
+          <h3>Tools</h3>
+          <p class="mono">Git&nbsp;/&nbsp;GitHub · Linux · RStudio · VS Code · Jupyter · Excel · Tableau · Notion</p>
+        </div>
+        <div class="skill">
+          <span class="skill__num mono">05</span>
+          <h3>Business</h3>
+          <p class="mono">Entrepreneurship · Sales · Project management · Final Cut Pro</p>
+        </div>
+        <div class="skill">
+          <span class="skill__num mono">06</span>
+          <h3>Languages</h3>
+          <p class="mono">French (native) · English (professional) · TOEIC 885/990 · Italian (beginner) · Mandarin (beginner)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="section section--projects reveal">
+      <span class="label mono">[PROJECTS]</span>
+      <h2 class="statement">Driven by curiosity</h2>
+
+      <div class="notion">
+        <div class="notion__bar">
+          <div class="notion__views" role="tablist" aria-label="Project views">
+            <button class="is-active" role="tab" aria-selected="true" data-view="board">▦ Board</button>
+            <button role="tab" aria-selected="false" data-view="tech">▤ Tech</button>
+            <button role="tab" aria-selected="false" data-view="leadership">▤ Leadership</button>
+            <button role="tab" aria-selected="false" data-view="entrepreneurship">▤ Entrepreneurship</button>
+          </div>
+        </div>
+        <div class="kanban" id="view-board" role="tabpanel">
+        <div class="kanban__col kanban__col--red">
+          <div class="kanban__head"><span class="status status--red">To do</span><span class="kanban__count">1</span><span class="kanban__tools" aria-hidden="true">··· &nbsp;+</span></div>
+            <article class="ticket" data-id="NAEL-08" tabindex="0" role="button" aria-haspopup="dialog" data-themes="">
+              <h3 class="ticket__title">Find a work-study</h3>
+              <dl class="ticket__detail" hidden>
+                <div><dt>Problem</dt><dd>ISEN's last year: I'm committed to my school, but it's an open relationship.</dd></div>
+                <div><dt>Approach</dt><dd>Step 1: land the internship. Step 2: introduce you to my school. Step 3: shared calendar.</dd></div>
+                <div><dt>Result</dt><dd>Not started. My school already said yes, so it's up to you.</dd></div>
+              </dl>
+              <p class="ticket__line">2027–28, in France. Looking for a company open to a relationship where I keep seeing my school on the side. Everyone's aware, nobody's hurt.</p>
+              <div class="ticket__tags"><span class="pill pill--blue">Sep 2027</span><span class="pill pill--gray">France</span></div>
+              <div class="ticket__links"><a class="ticket__link" href="#contact">↗ Get in touch</a></div>
+            </article>
+          <div class="kanban__new" aria-hidden="true">+ New</div>
+        </div>
+        <div class="kanban__col kanban__col--blue">
+          <div class="kanban__head"><span class="status status--blue">In progress</span><span class="kanban__count">2</span><span class="kanban__tools" aria-hidden="true">··· &nbsp;+</span></div>
+            <article class="ticket" data-id="NAEL-04" tabindex="0" role="button" aria-haspopup="dialog" data-themes="tech">
+              <h3 class="ticket__title">Portfolio Analysis</h3>
+              <dl class="ticket__detail" hidden>
+                <div><dt>Problem</dt><dd>Does my portfolio really spread the risk?</dd></div>
+                <div><dt>Approach</dt><dd>7 assets, 5 years of daily prices, all in USD. Common trading days only.</dd></div>
+                <div><dt>Result</dt><dd>A live app that rebuilds the report for any assets. Next: Markowitz.</dd></div>
+              </dl>
+              <p class="ticket__line">Does my portfolio really spread the risk? 7 assets, 5 years of data, one live app.</p>
+              <div class="ticket__tags"><span class="pill pill--red">★ Flagship</span><span class="pill pill--blue">Python</span><span class="pill pill--blue">pandas</span><span class="pill pill--purple">yfinance</span><span class="pill pill--orange">Matplotlib</span><span class="pill pill--yellow">Jupyter</span><span class="pill pill--red">Streamlit</span></div>
+              <div class="ticket__links"><a class="ticket__link" href="https://elouennael19dev-portfolio-diversification.streamlit.app" target="_blank" rel="noopener">↗ Live app</a><a class="ticket__link" href="https://github.com/elouennael19-dev/portfolio-diversification" target="_blank" rel="noopener">↗ GitHub</a></div>
+            </article>
+            <article class="ticket" data-id="NAEL-07" tabindex="0" role="button" aria-haspopup="dialog" data-themes="">
+              <h3 class="ticket__title">Find a tech internship</h3>
+              <dl class="ticket__detail" hidden>
+                <div><dt>Problem</dt><dd>I need an internship. You might need a data intern.</dd></div>
+                <div><dt>Approach</dt><dd>Built a whole website instead of a cover letter.</dd></div>
+                <div><dt>Result</dt><dd>Pending your reply. No pressure. (Some pressure.)</dd></div>
+              </dl>
+              <p class="ticket__line">4–6 months from April 2027, anywhere. Only one <a class="ticket__inline" href="mailto:elouen.nael19@gmail.com?subject=Internship%202027%20%E2%80%93%20let%27s%20talk&body=Hi%20Elouen%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20I%27d%20like%20to%20talk%20about%20a%204%E2%80%936%20month%20internship%20starting%20in%20April%202027.%0A%0AWhen%20would%20you%20be%20available%20for%20a%20quick%20call%3F%0A%0ABest%20regards%2C%0A">click</a> away from Shipped.</p>
+              <div class="ticket__tags"><span class="pill pill--blue">Apr → Sep 2027</span><span class="pill pill--purple">Data</span><span class="pill pill--green">Abroad welcome</span></div>
+              <div class="ticket__links"><a class="ticket__link" href="mailto:elouen.nael19@gmail.com?subject=Internship%202027%20%E2%80%93%20let%27s%20talk&body=Hi%20Elouen%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20I%27d%20like%20to%20talk%20about%20a%204%E2%80%936%20month%20internship%20starting%20in%20April%202027.%0A%0AWhen%20would%20you%20be%20available%20for%20a%20quick%20call%3F%0A%0ABest%20regards%2C%0A">↗ Make it happen</a></div>
+            </article>
+          <div class="kanban__new" aria-hidden="true">+ New</div>
+        </div>
+        <div class="kanban__col kanban__col--green">
+          <div class="kanban__head"><span class="status status--green">Shipped</span><span class="kanban__count">4</span><span class="kanban__tools" aria-hidden="true">··· &nbsp;+</span></div>
+            <article class="ticket" data-id="NAEL-03" tabindex="0" role="button" aria-haspopup="dialog" data-themes="tech leadership">
+              <h3 class="ticket__title">EV Charging Stations</h3>
+              <dl class="ticket__detail" hidden>
+                <div><dt>Problem</dt><dd>184k charging stations, raw national data.</dd></div>
+                <div><dt>Approach</dt><dd>R cleaning → Random Forest → MySQL → web map. I led a team of 3.</dd></div>
+                <div><dt>Result</dt><dd>R² 0.63 → 0.93. Tuning made it worse, so I kept it simple.</dd></div>
+              </dl>
+              <p class="ticket__line">184k charging stations, cleaned and modelled. Power prediction: R² 0.63 → 0.93.</p>
+              <div class="ticket__tags"><span class="pill pill--purple">R</span><span class="pill pill--blue">Python</span><span class="pill pill--orange">scikit‑learn</span><span class="pill pill--brown">MySQL</span><span class="pill pill--gray">PHP</span><span class="pill pill--green">Leaflet</span></div>
+              <div class="ticket__links"><a class="ticket__link" href="https://github.com/elouennael19-dev/ev-charging-ml-platform" target="_blank" rel="noopener">↗ GitHub</a></div>
+            </article>
+            <article class="ticket" data-id="NAEL-02" tabindex="0" role="button" aria-haspopup="dialog" data-themes="tech">
+              <h3 class="ticket__title">Thermal Control</h3>
+              <dl class="ticket__detail" hidden>
+                <div><dt>Problem</dt><dd>Keep a simulated house at 19 °C.</dd></div>
+                <div><dt>Approach</dt><dd>PID controller in C, anti-windup, unit test. Two STM32 boards.</dd></div>
+                <div><dt>Result</dt><dd>15 → 19 °C in ~23 min. The overshoot is next to tune.</dd></div>
+              </dl>
+              <p class="ticket__line">A PID controller in C for a simulated house. 15 °C → 19 °C in ~23 min.</p>
+              <div class="ticket__tags"><span class="pill pill--gray">C</span><span class="pill pill--green">STM32</span><span class="pill pill--blue">Python</span><span class="pill pill--blue">Tkinter</span></div>
+              <div class="ticket__links"><a class="ticket__link" href="https://github.com/elouennael19-dev/Projet-Informatique-S6" target="_blank" rel="noopener">↗ GitHub</a></div>
+            </article>
+                      <article class="ticket" data-id="NAEL-05" tabindex="0" role="button" aria-haspopup="dialog" data-themes="tech entrepreneurship">
+              <h3 class="ticket__title">NAEL CREATION CRM</h3>
+              <dl class="ticket__detail" hidden>
+                <div><dt>Problem</dt><dd>Clients, projects and revenue, all in one place.</dd></div>
+                <div><dt>Approach</dt><dd>Relational Notion databases: clients ↔ projects ↔ dashboard.</dd></div>
+                <div><dt>Result</dt><dd>15+ KPIs, from closing rate to revenue per project. ~85% less reporting time.</dd></div>
+              </dl>
+              <p class="ticket__line">My business, run from Notion. 15+ KPIs computed, ~85% less time on reporting.</p>
+              <div class="ticket__tags"><span class="pill pill--gray">Notion</span><span class="pill pill--brown">Relational modelling</span><span class="pill pill--green">KPI design</span><span class="pill pill--yellow">Dashboarding</span></div>
+              <div class="ticket__links"><a class="ticket__link" href="https://lnkd.in/p/ehgdd-yy" target="_blank" rel="noopener">↗ LinkedIn</a></div>
+            </article>
+            <article class="ticket" data-id="NAEL-06" tabindex="0" role="button" aria-haspopup="dialog" data-themes="leadership">
+              <h3 class="ticket__title">Notion Talk</h3>
+              <dl class="ticket__detail" hidden>
+                <div><dt>Problem</dt><dd>Show engineering students what Notion databases can do.</dd></div>
+                <div><dt>Approach</dt><dd>One hour, live demos, no slides-only theory.</dd></div>
+                <div><dt>Result</dt><dd>~30 engineering students in the room.</dd></div>
+              </dl>
+              <p class="ticket__line">One hour, live demos, ~30 engineering students. Relational databases made simple.</p>
+              <div class="ticket__tags"><span class="pill pill--gray">Notion</span><span class="pill pill--pink">Public speaking</span><span class="pill pill--purple">Live demos</span></div>
+              <div class="ticket__links"><a class="ticket__link" href="https://lnkd.in/p/e22dXgHW" target="_blank" rel="noopener">↗ LinkedIn</a></div>
+            </article>
+          <div class="kanban__new" aria-hidden="true">+ New</div>
+        </div>
+        <div class="kanban__col kanban__col--gray">
+          <div class="kanban__head"><span class="status status--gray">On hold</span><span class="kanban__count">1</span><span class="kanban__tools" aria-hidden="true">··· &nbsp;+</span></div>
+            <article class="ticket" data-id="NAEL-01" tabindex="0" role="button" aria-haspopup="dialog" data-themes="entrepreneurship">
+              <h3 class="ticket__title">SeaBass</h3>
+              <dl class="ticket__detail" hidden>
+                <div><dt>Problem</dt><dd>Forecasts don't show how a spot looks right now.</dd></div>
+                <div><dt>Approach</dt><dd>A community app: riders share live conditions, earn rewards.</dd></div>
+                <div><dt>Result</dt><dd>73 surveyed, 74% in. 22-page business plan, ~20-screen prototype.</dd></div>
+              </dl>
+              <p class="ticket__line">Live surf conditions, shared by the riders. 73 surveyed, 74% in.</p>
+              <div class="ticket__tags"><span class="pill pill--yellow">Market study</span><span class="pill pill--pink">Figma</span></div>
+            </article>
+          <div class="kanban__new" aria-hidden="true">+ New</div>
+        </div>
+        </div>
+        <dialog class="pmodal" aria-labelledby="pmodal-title">
+          <div class="pmodal__card" tabindex="-1" autofocus>
+            <div class="pmodal__top"><span class="pmodal__crumb">Projects / <span data-slot="id"></span></span><button class="pmodal__close" aria-label="Close">✕</button></div>
+            <h3 class="pmodal__title" id="pmodal-title" data-slot="title"></h3>
+            <dl class="pmodal__props">
+              <div><dt>◎ Status</dt><dd data-slot="status"></dd></div>
+              <div><dt>☷ Tech</dt><dd data-slot="tags"></dd></div>
+              <div data-slot="links-row"><dt>↗ Links</dt><dd data-slot="links"></dd></div>
+            </dl>
+            <div class="pmodal__detail" data-slot="detail"></div>
+          </div>
+        </dialog>
+        <div class="gallery" id="view-gallery" role="tabpanel" hidden>
+          <article class="gcard" data-themes="tech" data-project="Portfolio Analysis" tabindex="0" role="button" aria-haspopup="dialog">
+            <h3 class="gcard__title">Portfolio Analysis</h3>
+            <p class="ticket__line">Does my portfolio really spread the risk? 7 assets, 5 years of data, one live app.</p>
+            <div class="ticket__tags"><span class="pill pill--red">★ Flagship</span><span class="pill pill--blue">Python</span><span class="pill pill--blue">pandas</span><span class="pill pill--purple">yfinance</span><span class="pill pill--orange">Matplotlib</span><span class="pill pill--yellow">Jupyter</span><span class="pill pill--red">Streamlit</span></div>
+            <div class="ticket__links"><a class="ticket__link" href="https://elouennael19dev-portfolio-diversification.streamlit.app" target="_blank" rel="noopener">↗ Live app</a><a class="ticket__link" href="https://github.com/elouennael19-dev/portfolio-diversification" target="_blank" rel="noopener">↗ GitHub</a></div>
+          </article>
+          <article class="gcard" data-themes="tech leadership" data-project="EV Charging Stations" tabindex="0" role="button" aria-haspopup="dialog">
+            <h3 class="gcard__title">EV Charging Stations</h3>
+            <p class="ticket__line">184k charging stations, cleaned and modelled. Power prediction: R² 0.63 → 0.93.</p>
+            <div class="ticket__tags"><span class="pill pill--purple">R</span><span class="pill pill--blue">Python</span><span class="pill pill--orange">scikit‑learn</span><span class="pill pill--brown">MySQL</span><span class="pill pill--gray">PHP</span><span class="pill pill--green">Leaflet</span></div>
+            <div class="ticket__links"><a class="ticket__link" href="https://github.com/elouennael19-dev/ev-charging-ml-platform" target="_blank" rel="noopener">↗ GitHub</a></div>
+          </article>
+          <article class="gcard" data-themes="tech" data-project="Thermal Control" tabindex="0" role="button" aria-haspopup="dialog">
+            <h3 class="gcard__title">Thermal Control</h3>
+            <p class="ticket__line">A PID controller in C for a simulated house. 15 °C → 19 °C in ~23 min.</p>
+            <div class="ticket__tags"><span class="pill pill--gray">C</span><span class="pill pill--green">STM32</span><span class="pill pill--blue">Python</span><span class="pill pill--blue">Tkinter</span></div>
+            <div class="ticket__links"><a class="ticket__link" href="https://github.com/elouennael19-dev/Projet-Informatique-S6" target="_blank" rel="noopener">↗ GitHub</a></div>
+          </article>
+          <article class="gcard" data-themes="tech entrepreneurship" data-project="NAEL CREATION CRM" tabindex="0" role="button" aria-haspopup="dialog">
+            <h3 class="gcard__title">NAEL CREATION CRM</h3>
+            <p class="ticket__line">My business, run from Notion. 15+ KPIs computed, ~85% less time on reporting.</p>
+            <div class="ticket__tags"><span class="pill pill--gray">Notion</span><span class="pill pill--brown">Relational modelling</span><span class="pill pill--green">KPI design</span><span class="pill pill--yellow">Dashboarding</span></div>
+            <div class="ticket__links"><a class="ticket__link" href="https://lnkd.in/p/ehgdd-yy" target="_blank" rel="noopener">↗ LinkedIn</a></div>
+          </article>
+          <article class="gcard" data-themes="leadership" data-project="Notion Talk" tabindex="0" role="button" aria-haspopup="dialog">
+            <h3 class="gcard__title">Notion Talk</h3>
+            <p class="ticket__line">One hour, live demos, ~30 engineering students. Relational databases made simple.</p>
+            <div class="ticket__tags"><span class="pill pill--gray">Notion</span><span class="pill pill--pink">Public speaking</span><span class="pill pill--purple">Live demos</span></div>
+            <div class="ticket__links"><a class="ticket__link" href="https://lnkd.in/p/e22dXgHW" target="_blank" rel="noopener">↗ LinkedIn</a></div>
+            
+          </article>
+          <article class="gcard" data-themes="entrepreneurship" data-project="SeaBass" tabindex="0" role="button" aria-haspopup="dialog">
+            <h3 class="gcard__title">SeaBass</h3>
+            <p class="ticket__line">Live surf conditions, shared by the riders. 73 surveyed, 74% in.</p>
+            <div class="ticket__tags"><span class="pill pill--yellow">Market study</span><span class="pill pill--pink">Figma</span></div>
+            
+          </article>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- ============ OUTSIDE SCHOOL ============ -->
+    <section id="outside" class="section reveal">
+      <span class="label mono">[OUTSIDE SCHOOL]</span>
+      <h2 class="statement">What keeps me busy<br>outside the classroom.</h2>
+
+      <div class="tiles">
+        <article class="tile">
+          <div class="tile__media tile__media--video">
+            <button class="vthumb" data-video="https://www.linkedin.com/embed/feed/update/urn:li:activity:7473827394005635072?compact=1" aria-label="Play the client video">
+              <img src="assets/img/video-client.jpg" alt="" width="1200" height="750" loading="lazy">
+              <span class="vthumb__label mono">[ FOR CLIENT ]</span>
+              <span class="vthumb__play" aria-hidden="true">▶&#xFE0E;</span>
+            </button>
+            <button class="vthumb" data-video="https://www.linkedin.com/embed/feed/update/urn:li:activity:7426668620639875073?compact=1" aria-label="Play The sea, a personal video">
+              <img src="assets/img/video-fun.jpg" alt="" width="1200" height="750" loading="lazy">
+              <span class="vthumb__label mono">[ FOR FUN ]</span>
+              <span class="vthumb__play" aria-hidden="true">▶&#xFE0E;</span>
+            </button>
+          </div>
+          <p class="tile__caption mono">NAEL CREATION<br>FOUNDER / VIDEO PRODUCTION</p>
+          <p class="tile__text">Videos for hotels, sports and businesses since 2023: 12 clients, 24 projects, from prospecting to final edit.</p>
+          <a class="tile__link tile__link--blink mono" href="https://fr.linkedin.com/company/nael-creation" target="_blank" rel="noopener">[ see the work ]</a>
+        </article>
+        <article class="tile">
+          <div class="tile__media tile__media--photo"><img src="assets/img/notion-talk.jpg" alt="Elouen giving a Notion talk to engineering students at ISEN Brest" width="960" height="1200" loading="lazy"></div>
+          <p class="tile__caption mono">NOTION CAMPUS LEADER<br>ISEN BREST / 2026</p>
+          <p class="tile__text">Talks and content to introduce students to Notion, including a one-hour talk for 30 engineering students.</p>
+        </article>
+        <article class="tile tile--aside">
+          <div class="tile__media tile__media--strips">
+            <img src="assets/img/sport-run.jpg?v=4" alt="Running in the street" width="1200" height="900" loading="lazy">
+            <img src="assets/img/sport-surfers.jpg?v=4" alt="Surfers waiting for waves" width="1200" height="900" loading="lazy">
+            <img src="assets/img/sport-gym.jpg?v=4" alt="Training at the gym" width="1200" height="900" loading="lazy">
+            <img src="assets/img/sport-kite.jpg?v=4" alt="On the beach with a kite" width="1200" height="900" loading="lazy">
+          </div>
+          <p class="tile__caption mono">KITESURF / SURF / RUNNING / GYM<br>BRITTANY</p><p class="statement-aside mono">Plus a part‑time job:<br>finding an internship.</p>
+          <p class="tile__text">Kitesurfing every week, running, 13 years of competitive BMX racing and 2 years as a volunteer coach for 8–9 year olds.</p>
+        </article>
+      </div>
+    </section>
+
+    <dialog class="vmodal" aria-label="Video">
+      <button class="vmodal__close" aria-label="Close">✕</button>
+      <iframe title="Video" allowfullscreen></iframe>
+    </dialog>
+    <!-- ============ FIN ============ -->
+    <section class="section section--end">
+      <p class="end__line">Still curious.</p>
+      <a class="end__cta mono" href="mailto:elouen.nael19@gmail.com?subject=Internship%202027%20%E2%80%93%20let%27s%20talk&body=Hi%20Elouen%2C%0A%0AI%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20talk%20about%20a%204%E2%80%936%20month%20internship%20starting%20in%20April%202027.%0A%0AWhen%20would%20you%20be%20available%20for%20a%20quick%20call%3F%0A%0ABest%20regards%2C%0A">[ Get in touch ]</a>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER / CONTACT ============ -->
+  <footer id="contact" class="footer">
+    <div class="cols cols--3 footer__cols mono">
+      <div>
+        <span class="label">[ Sitemap ]</span>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#outside">Outside school</a>
+        <a href="#skills">Skills</a>
+      </div>
+      <div>
+        <span class="label">[ Links ]</span>
+        <a href="https://github.com/elouennael19-dev" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/elouen-nael/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/elouen.nael/" target="_blank" rel="noopener">Instagram</a>
+        <a href="assets/docs/cv.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+      <div>
+        <span class="label">[ Contact ]</span>
+        <a href="mailto:elouen.nael19@gmail.com">[ elouen.nael19@gmail.com ]</a>
+        <span class="footer__note">Brest / Vannes — France</span>
+      </div>
+    </div>
+    <p class="footer__legal mono">© <span id="year"></span> — Elouen Nael</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+  <div class="tcursor is-hidden" aria-hidden="true"><span class="tcursor__block"></span><span class="tcursor__cmd mono"></span></div>
+  <script src="script.js?v=114"></script>
+</body>
+</html>
