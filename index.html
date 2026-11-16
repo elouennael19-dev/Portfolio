@@ -47,7 +47,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=140">
+  <link rel="stylesheet" href="style.css?v=150">
   <script>
     // Écran d'accueil : seulement à la première visite (ou via #30s)
     (function () {
@@ -120,7 +120,7 @@
           <span id="goal-title" class="goal__label mono">[ THE PLAN ]</span>
           <ol class="goal__list">
             <li class="goal__now"><span class="goal__year mono">2023 →</span><span class="goal__step">Engineering school, ISEN Brest</span></li>
-            <li class="goal__intern"><span class="goal__ring" aria-hidden="true"></span><span class="goal__year mono">2027</span><span class="goal__step">Data internship abroad</span></li>
+            <li class="goal__intern"><span class="goal__ring" aria-hidden="true"></span><span class="goal__year mono">2027</span><span class="goal__step">Data internship</span></li>
             <li><span class="goal__year mono">2027 → 28</span><span class="goal__step">Work-study in France</span></li>
             <li><span class="goal__year mono">2028</span><span class="goal__step">Engineering degree</span></li>
             <li class="goal__end"><span class="goal__year mono">2028 →</span><span class="goal__step">Full-time role in tech</span></li>
@@ -265,6 +265,18 @@
             <button role="tab" aria-selected="false" data-view="tech">▤ Tech</button>
             <button role="tab" aria-selected="false" data-view="leadership">▤ Leadership</button>
             <button role="tab" aria-selected="false" data-view="entrepreneurship">▤ Entrepreneurship</button>
+            <span class="notion__add" aria-hidden="true">+</span>
+          </div>
+          <div class="notion__actions">
+            <span aria-hidden="true" style="display:contents">
+              <svg viewBox="0 0 16 16"><path d="M2 4h12M4.5 8h7M7 12h2"/></svg>
+              <svg viewBox="0 0 16 16"><path d="M5 2v12M2.5 4.5 5 2l2.5 2.5M11 14V2M8.5 11.5 11 14l2.5-2.5"/></svg>
+              <svg viewBox="0 0 16 16"><path d="M9 1.5 3.5 9H8l-1 5.5L12.5 7H8z"/></svg>
+              <svg viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 4 4"/></svg>
+              <svg viewBox="0 0 16 16"><path d="M9.5 2H14v4.5M14 2 9 7M6.5 14H2V9.5M2 14l5-5"/></svg>
+              <svg viewBox="0 0 16 16"><path d="M2 5h12M2 11h12"/><circle cx="10" cy="5" r="1.6" fill="#fff"/><circle cx="6" cy="11" r="1.6" fill="#fff"/></svg>
+            </span>
+            <a class="notion__btn" href="#contact"><span>New</span><span aria-hidden="true">⌄</span></a>
           </div>
         </div>
         <div class="kanban" id="view-board" role="tabpanel">
@@ -294,7 +306,7 @@
               </dl>
               <p class="ticket__line">Does my portfolio really spread the risk? Choose your assets and period, get the full report in a live app.</p>
               <div class="ticket__tags"><span class="pill pill--red">★ Flagship</span><span class="pill pill--blue">Python</span><span class="pill pill--blue">pandas</span><span class="pill pill--purple">yfinance</span><span class="pill pill--orange">Matplotlib</span><span class="pill pill--yellow">Jupyter</span><span class="pill pill--red">Streamlit</span></div>
-              <div class="ticket__links"><a class="ticket__link" href="https://elouennael19dev-portfolio-diversification.streamlit.app" target="_blank" rel="noopener">↗ Live app</a><a class="ticket__link" href="https://github.com/elouennael19-dev/portfolio-diversification" target="_blank" rel="noopener">↗ GitHub</a></div>
+              <div class="ticket__links"><a class="ticket__link ticket__link--live" href="https://elouennael19dev-portfolio-diversification.streamlit.app" target="_blank" rel="noopener">↗ Live app</a><a class="ticket__link" href="https://github.com/elouennael19-dev/portfolio-diversification" target="_blank" rel="noopener">↗ GitHub</a></div>
             </article>
             <article class="ticket" data-id="NAEL-07" tabindex="0" role="button" aria-haspopup="dialog" data-themes="">
               <h3 class="ticket__title">Find a tech internship</h3>
@@ -389,7 +401,7 @@
             <h3 class="gcard__title">Portfolio Analysis</h3>
             <p class="ticket__line">Does my portfolio really spread the risk? Choose your assets and period, get the full report in a live app.</p>
             <div class="ticket__tags"><span class="pill pill--red">★ Flagship</span><span class="pill pill--blue">Python</span><span class="pill pill--blue">pandas</span><span class="pill pill--purple">yfinance</span><span class="pill pill--orange">Matplotlib</span><span class="pill pill--yellow">Jupyter</span><span class="pill pill--red">Streamlit</span></div>
-            <div class="ticket__links"><a class="ticket__link" href="https://elouennael19dev-portfolio-diversification.streamlit.app" target="_blank" rel="noopener">↗ Live app</a><a class="ticket__link" href="https://github.com/elouennael19-dev/portfolio-diversification" target="_blank" rel="noopener">↗ GitHub</a></div>
+            <div class="ticket__links"><a class="ticket__link ticket__link--live" href="https://elouennael19dev-portfolio-diversification.streamlit.app" target="_blank" rel="noopener">↗ Live app</a><a class="ticket__link" href="https://github.com/elouennael19-dev/portfolio-diversification" target="_blank" rel="noopener">↗ GitHub</a></div>
           </article>
           <article class="gcard" data-themes="tech leadership" data-project="EV Charging Stations" tabindex="0" role="button" aria-haspopup="dialog">
             <h3 class="gcard__title">EV Charging Stations</h3>
@@ -430,7 +442,7 @@
     <!-- ============ OUTSIDE SCHOOL ============ -->
     <section id="outside" class="section reveal">
       <span class="label mono">[OUTSIDE SCHOOL]</span>
-      <h2 class="statement">What keeps me busy<br>outside the classroom.</h2>
+      <h2 class="statement">Powered by creativity</h2>
 
       <div class="tiles">
         <article class="tile">
@@ -474,8 +486,11 @@
     </dialog>
     <!-- ============ FIN ============ -->
     <section class="section section--end">
-      <p class="end__line">Still curious.</p>
-      <a class="end__cta mono" href="mailto:elouen.nael19@gmail.com?subject=Internship%202027%20%E2%80%93%20let%27s%20talk&body=Hi%20Elouen%2C%0A%0AI%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20talk%20about%20a%204%E2%80%936%20month%20internship%20starting%20in%20April%202027.%0A%0AWhen%20would%20you%20be%20available%20for%20a%20quick%20call%3F%0A%0ABest%20regards%2C%0A">[ Get in touch ]</a>
+      <div class="end__head">
+        <span class="label mono">[CONTACT]</span>
+        <p class="end__line">Trusted by you?</p>
+      </div>
+      <a class="btn end__cta mono" href="mailto:elouen.nael19@gmail.com?subject=Internship%202027%20%E2%80%93%20let%27s%20talk&body=Hi%20Elouen%2C%0A%0AI%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20talk%20about%20a%204%E2%80%936%20month%20internship%20starting%20in%20April%202027.%0A%0AWhen%20would%20you%20be%20available%20for%20a%20quick%20call%3F%0A%0ABest%20regards%2C%0A">[ Get in touch ]</a>
     </section>
 
   </main>
