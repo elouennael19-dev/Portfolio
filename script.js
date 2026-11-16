@@ -47,6 +47,7 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     btn: b,
     name: b.querySelector(".study__name").textContent,
     coords: "online" in b.dataset ? null : [+b.dataset.lon, +b.dataset.lat],
+    flag: b.dataset.flag,
   }));
 
   const projection = d3.geoOrthographic()
@@ -73,8 +74,28 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     .attr("class", "pin")
     .on("click", (_, d) => select(d));
   pins.append("circle").attr("class", "pin__pulse").attr("r", 6);
-  pins.append("circle").attr("class", "pin__dot").attr("r", 6);
-  pins.append("text").attr("class", "pin__label").attr("x", 12).attr("y", 4).text((d) => d.name);
+  pins.append("circle").attr("class", "pin__dot").attr("r", 2.5);
+  // petit drapeau planté sur le lieu : mât + drapeau 16×11
+  pins.append("line").attr("class", "pin__pole").attr("x1", 0).attr("y1", 0).attr("x2", 0).attr("y2", -19);
+  const flag = pins.append("g").attr("class", "pin__flag").attr("transform", "translate(0.5,-19)");
+  flag.each(function (d) { drawFlag(d3.select(this), d.flag); });
+  flag.append("rect").attr("class", "pin__flag-edge").attr("width", 16).attr("height", 11);
+  pins.append("text").attr("class", "pin__label").attr("x", 20).attr("y", -11).text((d) => d.name);
+
+  function drawFlag(g, code) {
+    const r = (x, y, w, h, fill) => g.append("rect").attr("x", x).attr("y", y).attr("width", w).attr("height", h).attr("fill", fill);
+    if (code === "fr") {
+      r(0, 0, 5.34, 11, "#0055a4"); r(5.33, 0, 5.34, 11, "#fff"); r(10.66, 0, 5.34, 11, "#ef4135");
+    } else if (code === "sg") {
+      r(0, 0, 16, 5.5, "#ef3340"); r(0, 5.5, 16, 5.5, "#fff");
+      g.append("circle").attr("cx", 3.6).attr("cy", 2.75).attr("r", 1.9).attr("fill", "#fff");
+      g.append("circle").attr("cx", 4.3).attr("cy", 2.75).attr("r", 1.7).attr("fill", "#ef3340");
+    } else if (code === "us") {
+      r(0, 0, 16, 11, "#fff");
+      for (let i = 0; i < 7; i += 2) r(0, i * (11 / 7), 16, 11 / 7, "#b22234");
+      r(0, 0, 7, 11 * 4 / 7, "#3c3b6e");
+    }
+  }
 
   function render() {
     svg.selectAll(".globe__sphere, .globe__grat, .globe__outline").attr("d", path);

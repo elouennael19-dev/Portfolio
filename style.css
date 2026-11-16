@@ -396,6 +396,11 @@ img { display: block; max-width: 100%; }
 .pin__pulse { fill: none; stroke: var(--ring-a); stroke-width: 1.5; opacity: 0; }
 .pin.is-active .pin__dot { fill: var(--ring-a); }
 .pin.is-active .pin__pulse { animation: pulse 2s ease-out infinite; }
+.pin__dot { r: 2.5; }
+.pin__pole { stroke: #555; stroke-width: 1; }
+.pin__flag-edge { fill: none; stroke: rgba(0,0,0,.25); stroke-width: .5; }
+.pin__flag { transition: opacity .3s; opacity: .85; }
+.pin.is-active .pin__flag { opacity: 1; }
 .pin__label { font: 500 11px var(--font-mono); text-transform: uppercase; fill: var(--fg); paint-order: stroke; stroke: #fff; stroke-width: 4px; }
 
 @keyframes pulse {
@@ -546,6 +551,20 @@ img { display: block; max-width: 100%; }
 .kanban__count { color: var(--n-muted); font-size: 13px; }
 .kanban__tools { margin-left: auto; color: var(--n-muted); letter-spacing: .1em; }
 .kanban__new { color: var(--n-muted); font-size: 13px; padding: 6px 4px; border-radius: 4px; }
+/* carte vide « + New » de la colonne To do : invite à proposer un projet, mène au contact */
+.kanban__invite {
+  display: grid;
+  gap: 4px;
+  padding: 14px;
+  border: 1px dashed rgba(55,53,47,.3);
+  border-radius: 6px;
+  color: var(--n-muted);
+  text-decoration: none;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.kanban__invite:hover { background: #fff; border-color: rgba(55,53,47,.55); color: var(--n-text); }
+.kanban__invite-title { font-weight: 600; font-size: 14px; }
+.kanban__invite-line { font-family: var(--font-mono); font-size: 12px; }
 
 /* pastille de statut avec point */
 .status {
@@ -587,27 +606,6 @@ img { display: block; max-width: 100%; }
   width: 18px; height: 18px; border-radius: 50%;
   display: grid; place-items: center;
   font-size: 10px; background: #0b0b0b; color: #fff;
-}
-
-/* « In progress » : liseré qui tourne autour de la carte, comme un chargement */
-@property --spin { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
-.kanban__col--blue .ticket { position: relative; }
-.kanban__col--blue .ticket::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: 7px;
-  padding: 1.5px;
-  background: conic-gradient(from var(--spin), transparent 0 65%, rgba(35,131,226,.25) 75%, #2383e2 95%, transparent 100%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
-  animation: load-spin 2.4s linear infinite;
-  pointer-events: none;
-}
-@keyframes load-spin { to { --spin: 360deg; } }
-@media (prefers-reduced-motion: reduce) {
-  .kanban__col--blue .ticket::before { animation: none; background: rgba(35,131,226,.5); }
 }
 
 /* carte cliquable */
@@ -934,7 +932,7 @@ img { display: block; max-width: 100%; }
   /* grande page blanche : « il reste beaucoup à écrire ensemble » */
   min-height: 100vh;
   min-height: 100svh;
-  padding: clamp(40px, 4vw, 56px) var(--gutter) clamp(96px, 14vw, 200px);
+  padding: clamp(96px, 9vw, 120px) var(--gutter) clamp(64px, 8vw, 120px); /* haut : laisse la place au menu fixe */
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -47,7 +47,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=150">
+  <link rel="stylesheet" href="style.css?v=154">
   <script>
     // Écran d'accueil : seulement à la première visite (ou via #30s)
     (function () {
@@ -63,8 +63,8 @@
   <!-- ============ ÉCRAN D'ACCUEIL ============ -->
   <section class="intro" aria-labelledby="intro-q">
     <div class="intro__inner">
-      <span class="intro__label mono">[ HI ]</span>
-      <p class="intro__q" id="intro-q">How much time do you have to know me?</p>
+      <span class="intro__label mono">[ HI, I'M ELOUEN. YOU'RE ON MY PORTFOLIO. ]</span>
+      <p class="intro__q" id="intro-q">Should I keep it short?</p>
       <div class="intro__choices">
         <button class="btn btn--ghost mono" data-intro="quick">[ &lt; 30s ]</button>
         <button class="btn mono" data-intro="full">[ It's ok, I have time ]</button>
@@ -134,8 +134,7 @@
           FOUNDER OF NAEL CREATION
         </p>
         <div class="hero__cta">
-          <a href="#projects" class="btn mono">[ explore ]</a>
-          <a href="assets/docs/cv.pdf" class="btn btn--ghost mono" target="_blank" rel="noopener">[ resume ]</a>
+          <a href="assets/docs/cv.pdf" class="btn mono" target="_blank" rel="noopener">[ resume ]</a>
         </div>
       </div>
     </section>
@@ -176,14 +175,14 @@
           <span class="label mono">[ STUDIES ]</span>
           <ul class="studies__list">
             <li>
-              <button class="study is-active" data-lat="48.39" data-lon="-4.49" aria-pressed="true">
+              <button class="study is-active" data-flag="fr" data-lat="48.39" data-lon="-4.49" aria-pressed="true">
                 <span class="study__head"><span class="study__name">ISEN Brest</span><span class="study__year mono">2023 → 2028</span></span>
                 <span class="study__place mono">Brest, France</span>
                 <span class="study__detail">Engineering degree, data &amp; computer science. Specialising in data and AI: machine learning, statistics, databases.</span>
               </button>
             </li>
             <li>
-              <button class="study" data-lat="1.33" data-lon="103.78" aria-pressed="false">
+              <button class="study" data-flag="sg" data-lat="1.33" data-lon="103.78" aria-pressed="false">
                 <span class="study__head"><span class="study__name">SUSS Singapore</span><span class="study__year mono">2025</span></span>
                 <span class="study__place mono">Singapore</span>
                 <span class="study__detail">Exchange semester in finance, economics and business analytics.</span>
@@ -197,7 +196,7 @@
               </button>
             </li>
             <li>
-              <button class="study" data-lat="34.07" data-lon="-118.44" aria-pressed="false">
+              <button class="study" data-flag="us" data-lat="34.07" data-lon="-118.44" aria-pressed="false">
                 <span class="study__head"><span class="study__name">UCLA Extension</span><span class="study__year mono">2027</span></span>
                 <span class="study__place mono">Los Angeles, USA</span>
                 <span class="study__detail">Data Science Certificate.</span>
@@ -293,7 +292,10 @@
               <div class="ticket__tags"><span class="pill pill--blue">Sep 2027</span><span class="pill pill--gray">France</span></div>
               <div class="ticket__links"><a class="ticket__link" href="#contact">↗ Get in touch</a></div>
             </article>
-          <div class="kanban__new" aria-hidden="true">+ New</div>
+          <a class="kanban__invite" href="#contact">
+            <span class="kanban__invite-title">+ New</span>
+            <span class="kanban__invite-line">Your project here.</span>
+          </a>
         </div>
         <div class="kanban__col kanban__col--blue">
           <div class="kanban__head"><span class="status status--blue">In progress</span><span class="kanban__count">2</span><span class="kanban__tools" aria-hidden="true">··· &nbsp;+</span></div>
@@ -485,7 +487,7 @@
       <iframe title="Video" allowfullscreen></iframe>
     </dialog>
     <!-- ============ FIN ============ -->
-    <section class="section section--end">
+    <section id="contact" class="section section--end">
       <div class="end__head">
         <span class="label mono">[CONTACT]</span>
         <p class="end__line">Trusted by you?</p>
@@ -496,7 +498,7 @@
   </main>
 
   <!-- ============ FOOTER / CONTACT ============ -->
-  <footer id="contact" class="footer">
+  <footer class="footer">
     <div class="cols cols--3 footer__cols mono">
       <div>
         <span class="label">[ Sitemap ]</span>
@@ -524,6 +526,6 @@
   <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
   <div class="tcursor is-hidden" aria-hidden="true"><span class="tcursor__block"></span><span class="tcursor__cmd mono"></span></div>
-  <script src="script.js?v=117"></script>
+  <script src="script.js?v=118"></script>
 </body>
 </html>
