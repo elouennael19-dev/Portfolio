@@ -46,7 +46,7 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
   const places = buttons.map((b) => ({
     btn: b,
     name: b.querySelector(".study__name").textContent,
-    coords: [+b.dataset.lon, +b.dataset.lat],
+    coords: "online" in b.dataset ? null : [+b.dataset.lon, +b.dataset.lat],
   }));
 
   const projection = d3.geoOrthographic()
@@ -69,7 +69,7 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
   const land = svg.append("g");
   svg.append("path").datum({ type: "Sphere" }).attr("class", "globe__outline");
 
-  const pins = svg.append("g").selectAll("g").data(places).join("g")
+  const pins = svg.append("g").selectAll("g").data(places.filter((p) => p.coords)).join("g")
     .attr("class", "pin")
     .on("click", (_, d) => select(d));
   pins.append("circle").attr("class", "pin__pulse").attr("r", 6);
@@ -97,6 +97,8 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
       b.setAttribute("aria-pressed", on);
     });
     pins.classed("is-active", (d) => d === place);
+    // cours en ligne : pas de lieu, le globe reprend sa rotation lente
+    if (!place.coords) { if (tween) tween.stop(); auto = !reduceMotion; return; }
     const from = projection.rotate();
     const to = [-place.coords[0], -place.coords[1] * 0.8];
     const interp = d3.interpolate(from, to);
@@ -234,6 +236,7 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     [".ticket, .gcard", () => "> open"],
     [".notion__views button", () => "> view"],
     ["#globe", () => "> drag"],
+    [".study[data-online]", () => "> open"],
     [".study", () => "> locate"],
     ['a[href^="mailto:"]', () => "> mail"],
     ['a[href^="#"]', (el) => "> cd " + el.getAttribute("href")],
@@ -297,3 +300,4 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     }
   }));
 })();
+

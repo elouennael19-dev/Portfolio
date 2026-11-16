@@ -182,10 +182,9 @@ img { display: block; max-width: 100%; }
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--bg);
-  border: 1px solid rgba(255,255,255,.6);
+  background: #fff;
+  border: 1px solid #fff;
 }
-.goal__now::before { background: #a7e3b9 !important; border-color: #a7e3b9 !important; }   /* vert */
 /* prochaine étape : cercle très fin qui grossit puis rétrécit (transform = animation fluide) */
 .goal__ring {
   position: absolute;
@@ -206,7 +205,6 @@ img { display: block; max-width: 100%; }
   50%      { transform: scale(1);   opacity: .25; }
 }
 @media (prefers-reduced-motion: reduce) { .goal__ring { animation: none; transform: scale(.75); opacity: .5; } }
-.goal__end::before { background: #f8c39b !important; border-color: #f8c39b !important; }    /* orange */
 
 .goal__year { color: var(--muted); font-size: 12px; }
 .goal__step { color: var(--fg); font-size: 15px; font-weight: 500; letter-spacing: -0.01em; }
@@ -296,7 +294,12 @@ img { display: block; max-width: 100%; }
   --soft: #2b2b2b;
   --muted: #6e6e6e;
   --line: #e4e4e4;
-  background: #fff;
+  /* papier quadrillé : fond blanc, grille bleu clair de 20px */
+  background-color: #fff;
+  background-image:
+    linear-gradient(rgba(70,130,200,.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(70,130,200,.09) 1px, transparent 1px);
+  background-size: 20px 20px;
   color: var(--fg);
   padding-top: clamp(56px, 6vw, 88px);
   padding-bottom: clamp(56px, 6vw, 88px);
@@ -437,6 +440,18 @@ img { display: block; max-width: 100%; }
 .study.is-active::before { background: var(--ring-a); }
 .study.is-active .study__detail { display: block; margin-top: 6px; }
 
+/* Barre d'avancement (DataCamp) */
+.progress {
+  display: inline-block;
+  vertical-align: middle;
+  width: 80px; height: 6px;
+  margin: 0 6px 2px;
+  border-radius: 3px;
+  background: var(--line);
+  overflow: hidden;
+}
+.progress span { display: block; height: 100%; background: var(--ring-b); }
+
 /* Nav au-dessus de la section claire */
 
 @keyframes spin { to { transform: rotate(360deg); } }
@@ -498,6 +513,7 @@ img { display: block; max-width: 100%; }
   margin-bottom: 14px;
   font-size: 14px;
   color: var(--n-muted);
+  background: #fff; /* la grille ne passe pas sous les onglets */
 }
 .notion__views { display: flex; gap: 4px; }
 .notion__views button {
@@ -512,10 +528,10 @@ img { display: block; max-width: 100%; }
 
 .kanban { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; align-items: start; }
 .kanban__col { display: flex; flex-direction: column; gap: 8px; padding: 8px; border-radius: 8px; }
-.kanban__col--gray  { background: rgba(227,226,224,.35); }
-.kanban__col--red   { background: rgba(255,226,221,.4); }
-.kanban__col--blue  { background: rgba(211,229,239,.45); }
-.kanban__col--green { background: rgba(219,237,219,.45); }
+.kanban__col--gray  { background: #f5f5f4; }
+.kanban__col--red   { background: #fff3f1; }
+.kanban__col--blue  { background: #ebf3f8; }
+.kanban__col--green { background: #eff7ef; }
 
 .kanban__head { display: flex; align-items: center; gap: 8px; padding: 2px 2px 6px; }
 .kanban__count { color: var(--n-muted); font-size: 13px; }
