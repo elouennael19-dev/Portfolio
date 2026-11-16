@@ -134,6 +134,12 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
   }
 
   buttons.forEach((b, i) => b.addEventListener("click", () => select(places[i])));
+  // survol (souris uniquement) : ouvre le détail sans avoir à cliquer
+  if (window.matchMedia("(hover: hover)").matches) {
+    buttons.forEach((b, i) => b.addEventListener("mouseenter", () => {
+      if (!b.classList.contains("is-active")) select(places[i]);
+    }));
+  }
 
   // rotation à la souris / au doigt
   svg.call(d3.drag().on("start", () => { auto = false; if (tween) tween.stop(); })
