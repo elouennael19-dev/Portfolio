@@ -252,6 +252,9 @@ img { display: block; max-width: 100%; }
 
 .btn--ghost { background: transparent; color: var(--fg); }
 .btn--ghost:hover { background: var(--fg); color: var(--bg); }
+/* bouton blanc plein (resume) : s'inverse au survol */
+.btn--white { background: #fff; color: #0b0b0b; border-color: #fff; }
+.btn--white:hover { background: transparent; color: #fff; }
 
 /* =========================================================
    Sections

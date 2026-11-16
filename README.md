@@ -1,6 +1,6 @@
 # Portfolio
 
-🔗 **[elouennael19-dev.github.io/Portfolio](https://elouennael19-dev.github.io/Portfolio/)**
+🔗 **[elouennael19-dev.github.io](https://elouennael19-dev.github.io/)**
 
 Site statique (HTML, CSS, JavaScript vanilla) hébergé sur GitHub Pages.
 
