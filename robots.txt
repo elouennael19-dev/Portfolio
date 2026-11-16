@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://elouennael19-dev.github.io/sitemap.xml
