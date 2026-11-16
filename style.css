@@ -328,6 +328,7 @@ img { display: block; max-width: 100%; }
   line-height: 1.7;
 }
 .about__text p + p { margin-top: 24px; }
+.about__text strong { font-weight: 600; color: var(--fg); }
 
 .about__portrait {
   position: relative;
@@ -386,7 +387,6 @@ img { display: block; max-width: 100%; }
   touch-action: none;
 }
 .studies__globe svg:active { cursor: grabbing; }
-.studies__hint { display: block; text-align: center; color: var(--muted); margin-top: 8px; font-size: 11px; opacity: .7; }
 
 .globe__sphere { fill: url(#globe-shade); }
 .globe__grat { fill: none; stroke: rgba(0,0,0,.06); stroke-width: .6; }
@@ -1100,7 +1100,7 @@ html.show-quick .quick {
 .intro.is-leaving, .quick.is-leaving { opacity: 0; transition: opacity .45s ease; }
 
 .intro__inner { width: min(760px, 100%); }
-.intro__label { display: block; color: #8a8a8a; font-size: 12px; margin-bottom: 20px; }
+.intro__label { display: block; color: #0b0b0b; font-size: 12px; margin-bottom: 20px; }
 .intro__q {
   font-weight: 600;
   font-size: clamp(34px, 6vw, 76px);

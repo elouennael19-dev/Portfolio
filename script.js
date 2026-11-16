@@ -105,6 +105,11 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     pins
       .attr("transform", (d) => `translate(${projection(d.coords)})`)
       .style("display", (d) => (d3.geoDistance(d.coords, center) > Math.PI / 2 ? "none" : null));
+    // étiquette à gauche du drapeau quand le lieu est près du bord droit (sinon elle est coupée)
+    pins.select(".pin__label").each(function (d) {
+      const left = projection(d.coords)[0] > size * 0.62;
+      d3.select(this).attr("x", left ? -4 : 20).attr("text-anchor", left ? "end" : "start");
+    });
   }
 
   let auto = !reduceMotion;
