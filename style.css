@@ -323,12 +323,12 @@ img { display: block; max-width: 100%; }
 .about__text { max-width: 34em; }
 .about__text p {
   font-family: var(--font-mono);
-  color: var(--soft);
+  color: #000;
   font-size: clamp(15px, 1.25vw, 18px);
   line-height: 1.7;
 }
 .about__text p + p { margin-top: 24px; }
-.about__text strong { font-weight: 600; color: var(--fg); }
+.about__text strong { font-weight: 600; color: #000; }
 
 .about__portrait {
   position: relative;
@@ -751,36 +751,30 @@ img { display: block; max-width: 100%; }
 .tile__media--video { display: flex; flex-direction: column; justify-content: center; gap: 12px; background: transparent; border: 0; }
 /* Outside school : même rythme vertical que Skills et Projects */
 #outside {
-  padding-top: clamp(56px, 6vw, 88px);
+  padding-top: clamp(32px, 3.5vw, 48px);
   padding-bottom: clamp(56px, 6vw, 88px);
-  /* photo de mer en pose longue + voile noir, fondu vers le noir en bas */
+  /* photo de surfeurs au line-up + voile noir pour garder le texte lisible, fondu vers le noir en bas */
   background:
-    linear-gradient(to bottom, rgba(0,0,0,.72) 0%, rgba(0,0,0,.8) 70%, var(--bg) 100%),
-    url("assets/img/outside-bg.jpg") center / cover no-repeat;
+    linear-gradient(to bottom, rgba(0,0,0,.7) 0%, rgba(0,0,0,.78) 70%, var(--bg) 100%),
+    url("assets/img/outside-surf.jpg") center / cover no-repeat;
 }
 #outside .statement { margin-bottom: clamp(28px, 3.5vw, 48px); max-width: none; }
 /* petit aparté en gris foncé, à côté du titre */
 .statement-aside { color: #262626; font-size: 12px; line-height: 1.5; text-transform: none; text-align: right; }
-/* légende de tuile + aparté à droite */
-.tile--aside { position: relative; }
-/* note dans la marge droite, centrée sur la hauteur de la photo (4:5 → milieu à 62,5 % de la largeur) */
-.tile--aside .statement-aside {
-  position: absolute;
-  top: 0;
-  left: calc(100% + 24px);
-  margin-top: 62.5%;
-  transform: translateY(-50%);
-  white-space: nowrap;
-  font-size: 11px;
-  text-align: left;
-}
-/* marge trop étroite : la note revient sous la légende */
-@media (max-width: 1580px) {
-  .tile--aside .statement-aside { position: static; margin-top: 6px; transform: none; white-space: normal; }
-}
+/* aparté sous le texte de la tuile Notion campus leader */
+/* poussé en bas de la colonne (aligné sur la fin de la colonne sport), texte centré */
+.tile:has(.statement-aside) { display: flex; flex-direction: column; }
+.tile .statement-aside { margin-top: auto; padding-top: 24px; text-align: center; transform: translateY(48px); }
+/* mobile : tuiles empilées, le décalage ferait chevaucher la tuile sport en dessous */
+@media (max-width: 800px) { .tile .statement-aside { transform: none; } }
 
 /* photo simple, même contour que les vignettes vidéo */
-.tile__media--photo { border: 1px solid #3a3a3a; border-radius: 8px; overflow: hidden; background: transparent; }
+.tile__media--photo { position: relative; border: 1px solid #3a3a3a; border-radius: 8px; overflow: hidden; background: transparent; }
+/* légende en bas à gauche comme les vignettes vidéo ; dégradé sombre pour la lire sur le bureau clair */
+.tile__media--photo::after {
+  content: ""; position: absolute; inset: auto 0 0 0; height: 30%; pointer-events: none;
+  background: linear-gradient(to top, rgba(0,0,0,.65), transparent);
+}
 
 /* vignettes vidéo : photo + voile noir + label, clic = vidéo en grand */
 .vthumb {
@@ -821,7 +815,8 @@ img { display: block; max-width: 100%; }
 }
 .vmodal__close:focus:not(:focus-visible) { outline: none; }
 
-.tile__media--strips { display: flex; flex-direction: column; gap: 2px; background: var(--bg); }
+/* même contour que la photo Notion et les vignettes vidéo : bordure #3a3a3a + coins arrondis 8px */
+.tile__media--strips { display: flex; flex-direction: column; gap: 2px; background: var(--bg); border: 1px solid #3a3a3a; border-radius: 8px; }
 .tile__media--strips img {
   flex: 1 1 0;
   min-height: 0;
@@ -964,20 +959,26 @@ img { display: block; max-width: 100%; }
 /* =========================================================
    Footer
    ========================================================= */
+/* effet rideau : le footer est collé en bas de l'écran, derrière la page ;
+   la page (main, fond opaque) le recouvre puis se lève pour le découvrir */
+main { position: relative; z-index: 1; background: var(--bg); }
 .footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 0;
   margin-top: 0;
   padding: 64px var(--gutter) 24px;
-  border-top: 1px solid var(--line);
 }
-
-
-
+/* petit écran : footer empilé, potentiellement plus haut que l'écran → pas de rideau */
+@media (max-width: 800px), (max-height: 600px) {
+  .footer { position: static; }
+}
 
 .footer__cols > div { display: flex; flex-direction: column; gap: 8px; }
 .footer__cols a { color: var(--soft); transition: color .2s; width: fit-content; }
 .footer__cols a:hover { color: var(--accent); }
 
-.footer__legal { color: #555; margin-top: 64px; }
+.footer__legal { color: #555; margin-top: 48px; }
 
 /* =========================================================
    Apparition au scroll
@@ -1099,15 +1100,21 @@ html.show-quick .quick {
 }
 .intro.is-leaving, .quick.is-leaving { opacity: 0; transition: opacity .45s ease; }
 
-.intro__inner { width: min(760px, 100%); }
-.intro__label { display: block; color: #0b0b0b; font-size: 12px; margin-bottom: 20px; }
+/* même mise en page que la section Contact : label + question en haut à gauche, boutons centrés plus bas */
+html.show-intro .intro {
+  place-items: stretch;
+  padding: clamp(96px, 9vw, 120px) var(--gutter) clamp(64px, 8vw, 120px);
+}
+.intro__inner { display: flex; flex-direction: column; align-items: center; gap: 28px; min-height: 100%; }
+.intro__head { align-self: flex-start; text-align: left; }
+.intro__label { display: block; color: #0b0b0b; font-size: 12px; margin-bottom: 10px; }
 .intro__q {
   font-weight: 600;
   font-size: clamp(34px, 6vw, 76px);
   line-height: 1.02;
   letter-spacing: -0.035em;
 }
-.intro__choices { display: flex; flex-wrap: wrap; gap: 12px; margin-top: clamp(32px, 5vw, 56px); }
+.intro__choices { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-block: auto; /* centrés dans le blanc restant */ }
 
 /* boutons sur fond blanc */
 .intro .btn, .quick .btn { border-color: #0b0b0b; }

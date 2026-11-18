@@ -1,6 +1,16 @@
 // Année dans le footer
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// Âge calculé à partir de la date de naissance (version 30 secondes)
+(function age() {
+  const el = document.getElementById("age");
+  if (!el) return;
+  const b = new Date(el.dataset.birth), now = new Date();
+  let a = now.getFullYear() - b.getFullYear();
+  if (now.getMonth() < b.getMonth() || (now.getMonth() === b.getMonth() && now.getDate() < b.getDate())) a--;
+  el.textContent = a;
+})();
+
 // Menu mobile
 const toggle = document.querySelector(".nav__toggle");
 const menu = document.getElementById("nav-menu");

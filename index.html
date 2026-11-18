@@ -47,7 +47,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=156">
+  <link rel="stylesheet" href="style.css?v=159">
   <script>
     // Écran d'accueil : seulement à la première visite (ou via #30s)
     (function () {
@@ -63,8 +63,10 @@
   <!-- ============ ÉCRAN D'ACCUEIL ============ -->
   <section class="intro" aria-labelledby="intro-q">
     <div class="intro__inner">
-      <span class="intro__label mono">[ HI, I'M ELOUEN. YOU'RE ON MY PORTFOLIO. ]</span>
-      <p class="intro__q" id="intro-q">Should I keep it short?</p>
+      <div class="intro__head">
+        <span class="intro__label mono">[ HI, I'M ELOUEN. YOU'RE ON MY PORTFOLIO. ]</span>
+        <p class="intro__q" id="intro-q">Should I keep it short?</p>
+      </div>
       <div class="intro__choices">
         <button class="btn btn--ghost mono" data-intro="quick">[ Yes, 30 seconds ]</button>
         <button class="btn mono" data-intro="full">[ No, I have time ]</button>
@@ -76,7 +78,7 @@
   <section class="quick" aria-label="Elouen Nael in 30 seconds">
     <ul class="quick__list mono">
       <li>Elouen Nael</li>
-      <li>21, French</li>
+      <li><span id="age" data-birth="2005-01-19">21</span>, French</li>
       <li>Data &amp; AI engineering student, ISEN Brest</li>
       <li>Founded a video company at 18, alongside full-time studies</li>
       <li>Notion Campus Leader</li>
@@ -437,7 +439,6 @@
           </article>
         </div>
       </div>
-      </div>
     </section>
 
     <!-- ============ OUTSIDE SCHOOL ============ -->
@@ -464,18 +465,18 @@
           <a class="tile__link tile__link--blink mono" href="https://fr.linkedin.com/company/nael-creation" target="_blank" rel="noopener">[ see the work ]</a>
         </article>
         <article class="tile">
-          <div class="tile__media tile__media--photo"><img src="assets/img/notion-talk.jpg" alt="Elouen giving a Notion talk to engineering students at ISEN Brest" width="960" height="1200" loading="lazy"></div>
+          <div class="tile__media tile__media--photo"><img src="assets/img/notion-talk.jpg" alt="Elouen giving a Notion talk to engineering students at ISEN Brest" width="960" height="1200" loading="lazy"><span class="vthumb__label mono">[ TALK / 30 PEOPLE / 2025 ]</span></div>
           <p class="tile__caption mono">NOTION CAMPUS LEADER<br>ISEN BREST / 2026</p>
           <p class="tile__text">Helping students get the most out of Notion: talks, workshops and events, plus videos and templates.</p>
+          <p class="statement-aside mono">Plus a part‑time job:<br>finding an internship.</p>
         </article>
         <article class="tile tile--aside">
           <div class="tile__media tile__media--strips">
-            <img src="assets/img/sport-run.jpg?v=4" alt="Running in the street" width="1200" height="900" loading="lazy">
-            <img src="assets/img/sport-surfers.jpg?v=4" alt="Surfers waiting for waves" width="1200" height="900" loading="lazy">
-            <img src="assets/img/sport-gym.jpg?v=4" alt="Training at the gym" width="1200" height="900" loading="lazy">
+            <img src="assets/img/sport-running.jpg" alt="Running in the street" width="665" height="1182" loading="lazy" style="object-position: 50% 35%">
             <img src="assets/img/sport-kite.jpg?v=4" alt="On the beach with a kite" width="1200" height="900" loading="lazy">
+            <img src="assets/img/sport-gym.jpg?v=4" alt="Training at the gym" width="1200" height="900" loading="lazy">
           </div>
-          <p class="tile__caption mono">KITESURF / SURF / RUNNING / GYM<br>BRITTANY</p><p class="statement-aside mono">Plus a part‑time job:<br>finding an internship.</p>
+          <p class="tile__caption mono">KITESURF / SURF / RUNNING / GYM<br>BRITTANY</p>
           <p class="tile__text">Kitesurfing every week, surf (surf team captain in high school), running, 13 years of competitive BMX racing and 2 years as a volunteer coach for 8–9 year olds.</p>
         </article>
       </div>
@@ -519,12 +520,11 @@
         <span class="footer__note">Brest / Vannes — France</span>
       </div>
     </div>
-    <p class="footer__legal mono">© <span id="year"></span> — Elouen Nael</p>
-  </footer>
+    <p class="footer__legal mono">© <span id="year"></span> — Elouen Nael</p>  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
   <div class="tcursor is-hidden" aria-hidden="true"><span class="tcursor__block"></span><span class="tcursor__cmd mono"></span></div>
-  <script src="script.js?v=119"></script>
+  <script src="script.js?v=120"></script>
 </body>
 </html>
